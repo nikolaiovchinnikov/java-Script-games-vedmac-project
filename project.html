@@ -23,7 +23,7 @@
                     let damage = (attack_ING.str + attack_ING.weapon) - attack_ED.defense
                     attack_ED.hp -= damage
                     return `${attack_ING.name} нанес ${attack_ED.name} ${damage} урона ,осталось здоровья у ${attack_ED.name} ${attack_ED.hp} едениц `
-                }return " промах"
+                }return `${attack_ING.name} промахнулся`
             },
         }
 
@@ -35,6 +35,7 @@
             str: 150,      // Сила
             weapon: 0,      // Оружие
             fortune: 75,
+            
         };
 
         const Witcher = {
@@ -47,6 +48,19 @@
         };
         cicle = true
         while(cicle){
+            console.log("===========================================================")
+            if(Griffin.hp <= 0){
+                console.log(`победа ${Witcher.name}`)
+                cicle = false
+                break
+            }
+            console.log(commonMethods.changeHP(Griffin,Witcher))
+            console.log("vs")
+            if(Witcher.hp <= 0){
+                console.log(`победа ${Griffin.name}`)
+                cicle = false
+                break
+            }
             console.log(commonMethods.changeHP(Witcher,Griffin)) 
             cicle = confirm()
         }
