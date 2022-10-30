@@ -12,15 +12,45 @@
             hp: 2000,      // Жизненная энергия
             defense: 120,  // Защита
             str: 150,      // Сила
-            weapon: 0      // Оружие
+            weapon: 0,      // Оружие
+            luck: 25,
+            getRandomNamber: function () {
+                return Math.floor(Math.random() * (100 - 1)) + 1;
+            },
+            getStatus: function () {
+                
+            },
+            changeHP: function () {
+                
+            },
+            
         };
+
+
+
+
 
         const Witcher = {
             hp: 1000,
             defense: 100,
             str: 120,
             weapon: 250,
+            luck: 75,
+            getRandomNamber: function () {
+                return Math.floor(Math.random() * (100 - 1)) + 1;
+            },
+            getStatus: function () {
+                
+            },
+            changeHP: function () {
+                if(this.getRandomNamber()<=this.luck && Griffin.getRandomNamber()>=Griffin.luck){
+                    Griffin.hp -= (this.str + this.weapon) - Griffin.defense
+                }
+            }
         };
+        while(true){
+            Witcher.changeHP()
+        }
 
     </script>
 </body>
