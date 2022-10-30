@@ -8,6 +8,22 @@
 </head>
 <body>
     <script>
+
+
+
+        const commonMethods = {
+            getRandomNamber: function () {
+                return Math.floor(Math.random() * (100 - 1)) + 1;
+            },
+            getStatus: function () {
+                
+            },
+            changeHP: function () {
+                
+            },
+        }
+
+
         const Griffin = {
             hp: 2000,      // Жизненная энергия
             defense: 120,  // Защита
@@ -21,6 +37,9 @@
             str: 120,
             weapon: 250,
         };
+        while(true){
+            commonMethods.changeHP()
+        }
 
     </script>
 </body>
