@@ -8,37 +8,47 @@
 </head>
 <body>
     <script>
-
+        const percent = 100
 
 
         const commonMethods = {
             getRandomNamber: function () {
-                return Math.floor(Math.random() * (100 - 1)) + 1;
+                return Math.floor(Math.random() * (percent - 1)) + 1;
             },
             getStatus: function () {
                 
             },
-            changeHP: function () {
-                
+            changeHP: function (attack_ING,attack_ED) {
+                if(attack_ING.fortune >= this.getRandomNamber()){
+                    let damage = (attack_ING.str + attack_ING.weapon) - attack_ED.defense
+                    attack_ED.hp -= damage
+                    return `${attack_ING.name} нанес ${attack_ED.name} ${damage} урона ,осталось здоровья у ${attack_ED.name} ${attack_ED.hp} едениц `
+                }return " промах"
             },
         }
 
 
         const Griffin = {
+            name: "Griffin",
             hp: 2000,      // Жизненная энергия
             defense: 120,  // Защита
             str: 150,      // Сила
-            weapon: 0      // Оружие
+            weapon: 0,      // Оружие
+            fortune: 75,
         };
 
         const Witcher = {
+            name: "Witcher",
             hp: 1000,
             defense: 100,
             str: 120,
             weapon: 250,
+            fortune: 75
         };
-        while(true){
-            commonMethods.changeHP()
+        cicle = true
+        while(cicle){
+            console.log(commonMethods.changeHP(Witcher,Griffin)) 
+            cicle = confirm()
         }
 
     </script>
